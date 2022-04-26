@@ -408,7 +408,7 @@ fn ident_pat(p: &mut Parser, with_at: bool) -> CompletedMarker {
     let m = p.start();
     p.eat(T![ref]);
     p.eat(T![mut]);
-    name(p);
+    name_r(p, PAT_RECOVERY_SET);
     if with_at && p.eat(T![@]) {
         pattern_single(p);
     }
